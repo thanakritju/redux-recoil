@@ -1,11 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import { StylingMenu } from './features/stylingMenu/StylingMenu';
+import { StoreInfo } from './features/storeInfo/StoreInfo';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <StylingMenu />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
@@ -51,6 +54,7 @@ function App() {
           </a>
         </span>
       </header>
+      <StoreInfo />
     </div>
   );
 }
