@@ -7,18 +7,23 @@ import {
   incrementAsync,
   selectCount,
 } from './counterSlice';
+import {
+  selectColor,
+} from '../stylingMenu/stylingMenuSlice';
 import styles from './Counter.module.css';
 
 export function Counter() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
+  const color = useSelector(selectColor);
 
   return (
     <div>
       <div className={styles.row}>
         <button
           className={styles.button}
+          style={{color}}
           aria-label="Increment value"
           onClick={() => dispatch(increment())}
         >
@@ -27,6 +32,7 @@ export function Counter() {
         <span className={styles.value}>{count}</span>
         <button
           className={styles.button}
+          style={{color}}
           aria-label="Decrement value"
           onClick={() => dispatch(decrement())}
         >
@@ -42,6 +48,7 @@ export function Counter() {
         />
         <button
           className={styles.button}
+          style={{color}}
           onClick={() =>
             dispatch(incrementByAmount(Number(incrementAmount) || 0))
           }
@@ -50,6 +57,7 @@ export function Counter() {
         </button>
         <button
           className={styles.asyncButton}
+          style={{color}}
           onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
         >
           Add Async

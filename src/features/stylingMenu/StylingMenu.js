@@ -2,25 +2,25 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  selectBox,
-  setBackground,
+  selectColor,
+  setColor,
 } from './stylingMenuSlice';
 import styles from './StylingMenu.module.css';
 
 
 export function StylingMenu() {
   const dispatch = useDispatch();
-  const background = useSelector(selectBox);
+  const color = useSelector(selectColor);
 
   return (
-    <div style={{background}} className={styles.menuController}>
+    <div style={{background: color}} className={styles.menuController}>
       <input
         type="color"
         aria-label="Set background"
-        value={background}
-        onChange={e => dispatch(setBackground(e.target.value))}
+        value={color}
+        onChange={e => dispatch(setColor(e.target.value))}
         />
-      {background}
+      {color}
     </div>
   )
 }

@@ -3,17 +3,17 @@ import { createSlice } from '@reduxjs/toolkit';
 export const stylingMenuSlice = createSlice({
   name: 'stylingMenu',
   initialState: {
-    background: "#000000",
+    color: "#704cb6",
   },
   reducers: {
-    setBackground: (state, action) => {
-      state.background = action.payload;
+    setColor: (state, action) => {
+      state.color = action.payload;
     },
   },
 });
 
-export const { setBackground } = stylingMenuSlice.actions;
+export const { setColor } = stylingMenuSlice.actions;
 
-export const selectBox = state => state.stylingMenu.background;
+export const selectColor = state => state.stylingMenu.color;
 
 export default stylingMenuSlice.reducer;
